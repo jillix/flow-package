@@ -10,7 +10,6 @@
   , "jillix/engine-form"
   , "gabipetrovay/engine-prompt21"
   , "jillix/engine-jq"
-  , "jillix/builder"
   , "jillix/flow-service-api"
   , "jillix/flow-flow-api"
   , "jillix/engine-piklor"

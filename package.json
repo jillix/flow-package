@@ -1,8 +1,10 @@
 {
-  "name": "flow-packages",
+  "name": "flow-package",
   "version": "1.0.0",
-  "description": "A collection of flow compatible npm packages.",
-  "main": "lib/index.js",
+  "description": ":package: A collection of flow compatible npm packages.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,25 +12,25 @@
     "type": "git",
     "url": "git+https://github.com/jillix/flow-package.git"
   },
-  "keywords": [
-    "flow",
-    "jillix",
-    "package"
-  ],
-  "author": "jillix <contact@jillix.com> (http://jillix.com)",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jillix/flow-package/issues"
   },
   "homepage": "https://github.com/jillix/flow-package#readme",
-  "dependencies": {
-    "bindy": "^1.0.1",
-    "bug-killer": "^4.2.1",
-    "package-json": "^2.3.1",
-    "package.json": "github:ionicabizau/package.json",
-    "same-time": "^2.3.1"
-  },
-  "devDependencies": {
-    "w-json": "^1.3.1"
+  "blah": {
+    "contributing": [
+      {
+        "h3": "Adding a new module"
+      },
+      {
+        "ol": [
+          "Add the module git url (if it's hosted on GitHub, you can use the `owner/repo` format) in the [`build/packages.json`](/build/packages.json).",
+          "Run `npm i` to install the dev dependencies (if you don't have Node.js installed on your machine, just skip this step and the next one).",
+          "Rebuild the packages list by running `npm run refresh`",
+          "Commit the things and create a pull request (check the [`CONTRIBUTING.md`](/CONTRIBUTING.md) for details)."
+        ]
+      }
+    ]
   }
 }

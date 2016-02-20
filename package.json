@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/jillix/flow-packages.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "jillix <contact@jillix.com> (http://jillix.com)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jillix/flow-packages/issues"
   },

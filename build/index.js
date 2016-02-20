@@ -3,6 +3,7 @@ const packageJson = require("package.json")
     , sameTime = require("same-time")
     , bindy = require("bindy")
     , log = require("bug-killer").log
+    , writeJson = require("w-json")
     ;
 
 sameTime(bindy(packages, (repoUrl, cb) => {
@@ -15,5 +16,5 @@ sameTime(bindy(packages, (repoUrl, cb) => {
     if (err) {
         return log(err);
     }
-    console.log(data);
+    writeJson(`${__dirname}/../lib/packages.json`, data, err => log(err || "Done."));
 });

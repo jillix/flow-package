@@ -1,0 +1,685 @@
+[
+  {
+    "name": "flow-app",
+    "version": "0.1.0-beta",
+    "private": true,
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "description": "Web framework for flow applications.",
+    "contributors": [
+      {
+        "name": "Adrian Ottiker",
+        "email": "adrian@ottiker.com"
+      },
+      {
+        "name": "Gabriel Petrovay",
+        "email": "gabipetrovay@gmail.com"
+      },
+      {
+        "name": "Ionica Bizau",
+        "email": "bizauionica@gmail.com"
+      }
+    ],
+    "bin": {
+      "flow-app": "bin/index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/flow-app.git"
+    },
+    "keywords": [
+      "application",
+      "cloud",
+      "framework"
+    ],
+    "dependencies": {
+      "client-sessions": "^0.7.0",
+      "express": "^4.13.4",
+      "flow": "github:jillix/flow",
+      "flow-http": "github:jillix/flow-http",
+      "flow-pack": "github:jillix/flow-pack",
+      "flow-ws": "github:jillix/flow-ws",
+      "spdy": "^3.2.0",
+      "ws": "^1.0.1",
+      "yargs": "^3.32.0"
+    },
+    "engine": {
+      "node": ">=5"
+    },
+    "bugs": {
+      "url": "https://github.com/jillix/flow-app/issues"
+    },
+    "homepage": "https://github.com/jillix/flow-app",
+    "main": "bin/index.js",
+    "browser": "lib/flow.client.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "flow-app@0.1.0-beta"
+  },
+  {
+    "name": "flow-pack",
+    "version": "0.0.1",
+    "description": "Bundle npm modules of a flow app.",
+    "main": "index.js",
+    "bin": {
+      "flow-pack": "bin/index.js"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/flow-pack.git"
+    },
+    "keywords": [
+      "flow",
+      "bundle",
+      "pack"
+    ],
+    "author": {
+      "name": "Adrian Ottiker",
+      "email": "adrian@ottiker.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/flow-pack/issues"
+    },
+    "homepage": "https://github.com/jillix/flow-pack#readme",
+    "dependencies": {
+      "browserify": "^13.0.0",
+      "closurecompiler": "^1.5.2",
+      "yargs": "^3.32.0"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "flow-pack@0.0.1"
+  },
+  {
+    "name": "view",
+    "version": "0.1.0",
+    "description": "Render HTML templates",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/adioo/view.git"
+    },
+    "keywords": [
+      "jxengine",
+      "render",
+      "dom",
+      "events"
+    ],
+    "author": {
+      "name": "adioo"
+    },
+    "bugs": {
+      "url": "https://github.com/adioo/view/issues"
+    },
+    "homepage": "https://github.com/adioo/view",
+    "main": "index.js",
+    "readme": "ERROR: No README data found!",
+    "_id": "view@0.1.0"
+  },
+  {
+    "name": "login",
+    "version": "0.0.7",
+    "description": "jillix engine login module",
+    "main": "server/login.js",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/adioo/login.git"
+    },
+    "bugs": {
+      "url": "https://github.com/adioo/login/issues"
+    },
+    "homepage": "https://github.com/adioo/login",
+    "composition": {
+      "flow": [
+        [
+          "loginUser",
+          "loginUser"
+        ],
+        [
+          "logoutUser",
+          "logoutUser"
+        ],
+        [
+          "signupUser",
+          "signupUser"
+        ],
+        [
+          "resetPassword",
+          "resetPassword"
+        ]
+      ],
+      "client": {
+        "module": [
+          "login.js"
+        ],
+        "config": {},
+        "flow": [
+          [
+            "loginUser",
+            [
+              ">flow",
+              "@loginUser"
+            ],
+            [
+              ":session",
+              {
+                "sid": "sid"
+              }
+            ],
+            [
+              ">flow",
+              "userLoggedIn"
+            ]
+          ],
+          [
+            "logoutUser",
+            [
+              ":session",
+              {
+                "remove": true
+              }
+            ],
+            [
+              ">flow",
+              "@logoutUser"
+            ],
+            [
+              ">flow",
+              "userLoggedOut"
+            ]
+          ],
+          [
+            "signupUser",
+            [
+              ">flow",
+              "@signupUser"
+            ],
+            [
+              ">flow",
+              "userSignedUp"
+            ]
+          ],
+          [
+            "resetPassword",
+            [
+              ">flow",
+              "@resetPassword"
+            ],
+            [
+              ">flow",
+              "passwordReseted"
+            ]
+          ]
+        ]
+      }
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "login@0.0.7"
+  },
+  {
+    "name": "engine-ruut",
+    "version": "0.1.0",
+    "description": "Handle engine routes",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/jillix/engine-ruut.git"
+    },
+    "keywords": [
+      "jxengine",
+      "routes"
+    ],
+    "author": {
+      "name": "jillix"
+    },
+    "bugs": {
+      "url": "https://github.com/jillix/engine-ruut/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-ruut",
+    "main": "index.js",
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-ruut@0.1.0"
+  },
+  {
+    "name": "engine-editor",
+    "version": "1.0.4",
+    "description": "ACE editor module for Engine.",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/editor.git"
+    },
+    "keywords": [
+      "editor",
+      "ace",
+      "jxengine"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "composition": {
+      "client": {
+        "module": [
+          "client/index.js",
+          "client/libs/blm.js",
+          "#https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ext-modelist.js",
+          "#https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ext-language_tools.js",
+          "#https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"
+        ]
+      }
+    },
+    "bugs": {
+      "url": "https://github.com/jillix/editor/issues"
+    },
+    "homepage": "https://github.com/jillix/editor",
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-editor@1.0.4"
+  },
+  {
+    "name": "engine-schema",
+    "version": "0.1.0",
+    "description": "Schema validation in Engine projects.",
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/jillix/engine-schema.git"
+    },
+    "keywords": [
+      "jxengine",
+      "file",
+      "system"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/engine-schema/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-schema",
+    "dependencies": {
+      "tv4": "1.2.3",
+      "tv4-formats": "1.0.0"
+    },
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-schema@0.1.0"
+  },
+  {
+    "name": "engine-terminal",
+    "version": "0.1.0",
+    "description": "The web term version for Engine",
+    "keywords": [
+      "terminal",
+      "jxengine"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "main": "server/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "pty.js": "0.3.0"
+    },
+    "license": "MIT",
+    "devDependencies": {},
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/engine-terminal.git"
+    },
+    "bugs": {
+      "url": "https://github.com/jillix/engine-terminal/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-terminal",
+    "composition": {
+      "public": "public",
+      "flow": [
+        [
+          "termData",
+          "termData"
+        ]
+      ],
+      "client": {
+        "config": {
+          "container": "#terminal"
+        },
+        "flow": [
+          [
+            "termData",
+            [
+              "flow",
+              "@termData"
+            ]
+          ]
+        ],
+        "module": [
+          "client/index.js",
+          "client/text-size.js",
+          "client/term.js"
+        ],
+        "styles": [
+          "public/term.css"
+        ]
+      }
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-terminal@0.1.0"
+  },
+  {
+    "name": "engine-form",
+    "version": "1.1.0",
+    "description": "Form module for Engine.",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "composition": {
+      "client": {
+        "module": [
+          "client/index.js",
+          "client/jQuery-form-serializer.js",
+          "/libs/jquery.js"
+        ]
+      }
+    },
+    "blah": {
+      "streams": {
+        "data": "The form data object."
+      },
+      "ex_config": {
+        "form": "form.my-form"
+      }
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/jillix/engine-form.git"
+    },
+    "keywords": [
+      "jxengine",
+      "file",
+      "system"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/engine-form/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-form",
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-form@1.1.0"
+  },
+  {
+    "name": "engine-prompt21",
+    "version": "0.1.0",
+    "description": "Form module for Engine.",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "composition": {
+      "client": {
+        "module": [
+          "client/index.js",
+          "client/prompt21.js",
+          "/libs/jquery.js"
+        ]
+      }
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/gabipetrovay/engine-prompt21.git"
+    },
+    "keywords": [
+      "jxengine",
+      "jillix",
+      "service"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/gabipetrovay/engine-prompt21",
+    "bugs": {
+      "url": "https://github.com/gabipetrovay/engine-prompt21/issues"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-prompt21@0.1.0"
+  },
+  {
+    "name": "engine-jq",
+    "version": "0.1.0",
+    "description": "Call jQuery methods using Engine.",
+    "composition": {
+      "client": {
+        "module": [
+          "client/index.js",
+          "/libs/jquery.js"
+        ]
+      }
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/engine-jq.git"
+    },
+    "keywords": [
+      "jquery",
+      "jxengine"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/engine-jq/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-jq",
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-jq@0.1.0"
+  },
+  {
+    "name": "flow-service-api",
+    "version": "0.0.1",
+    "description": "Flow wrapper of the Service API",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/flow-service-api.git"
+    },
+    "keywords": [
+      "flow",
+      "api",
+      "wrapper"
+    ],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/flow-service-api/issues"
+    },
+    "homepage": "https://github.com/jillix/flow-service-api#readme",
+    "dependencies": {
+      "service-api": "github:jillix/service-api",
+      "set-or-get": "^1.0.0",
+      "iterate-object": "^1.1.0"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "flow-service-api@0.0.1"
+  },
+  {
+    "name": "flow-flow-api",
+    "version": "1.0.1",
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com",
+      "url": "http://jillix.com"
+    },
+    "description": "Flow API wrapper for flow.",
+    "contributors": [
+      {
+        "name": "Adrian Ottiker",
+        "email": "adrian@ottiker.com"
+      },
+      {
+        "name": "Ionică Bizău",
+        "email": "bizauionica@gmail.com",
+        "url": "http://ionicabizau.net"
+      }
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jillix/flow-flow-api.git"
+    },
+    "keywords": [
+      "flow",
+      "stream",
+      "network"
+    ],
+    "dependencies": {
+      "flow-api": "github:jillix/flow-api"
+    },
+    "engine": {
+      "node": ">=5"
+    },
+    "bugs": {
+      "url": "https://github.com/jillix/flow-flow-api/issues"
+    },
+    "homepage": "https://github.com/jillix/flow-flow-api",
+    "main": "lib/index.js",
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "directories": {
+      "example": "example"
+    },
+    "license": "MIT",
+    "readme": "ERROR: No README data found!",
+    "_id": "flow-flow-api@1.0.1"
+  },
+  {
+    "name": "engine-piklor",
+    "version": "1.0.1",
+    "description": "Piklor.js version for Engine.",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/jillix/engine-piklor.git"
+    },
+    "keywords": [
+      "jxengine",
+      "piklor",
+      "jillix"
+    ],
+    "components": {
+      "scripts": [
+        "client/index.js",
+        "client/piklor.js"
+      ]
+    },
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/engine-piklor/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-piklor",
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-piklor@1.0.1"
+  },
+  {
+    "name": "engine-ruut-not-found",
+    "version": "1.0.0",
+    "description": "Handles 404 links when there are more ruut instances.",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://git@github.com/jillix/engine-ruut-not-found.git"
+    },
+    "keywords": [
+      "routes",
+      "not-found",
+      "ruut.js"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jillix/engine-ruut-not-found/issues"
+    },
+    "homepage": "https://github.com/jillix/engine-ruut-not-found",
+    "composition": {
+      "client": {
+        "module": [
+          "client/index.js"
+        ],
+        "config": {
+          "ruuts": []
+        }
+      }
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-ruut-not-found@1.0.0"
+  },
+  {
+    "name": "engine-data-alter",
+    "version": "1.0.0",
+    "description": "Alter engine data",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/danandrei/engine-data-alter.git"
+    },
+    "keywords": [
+      "service",
+      "engine",
+      "jillix"
+    ],
+    "author": {
+      "name": "jillix",
+      "email": "contact@jillix.com",
+      "url": "http://jillix.com"
+    },
+    "bugs": {
+      "url": "https://github.com/danandrei/engine-data-alter/issues"
+    },
+    "homepage": "https://github.com/danandrei/engine-data-alter#readme",
+    "dependencies": {},
+    "readme": "ERROR: No README data found!",
+    "_id": "engine-data-alter@1.0.0"
+  }
+]

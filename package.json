@@ -1,5 +1,5 @@
 {
-  "name": "flow-package",
+  "name": "flow-packages",
   "version": "1.0.0",
   "description": ":package: A collection of flow compatible npm packages.",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jillix/flow-package.git"
+    "url": "git+https://github.com/jillix/flow-packages.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jillix/flow-package/issues"
+    "url": "https://github.com/jillix/flow-packages/issues"
   },
-  "homepage": "https://github.com/jillix/flow-package#readme",
+  "homepage": "https://github.com/jillix/flow-packages#readme",
   "blah": {
     "contributing": [
       {

@@ -1,6 +1,6 @@
 {
   "name": "flow-packages",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": ":package: A collection of flow compatible npm packages.",
   "main": "index.js",
   "dependencies": {},

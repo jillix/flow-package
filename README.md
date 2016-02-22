@@ -1,6 +1,12 @@
 # flow-packages [![Version](https://img.shields.io/npm/v/flow-packages.svg)](https://www.npmjs.com/package/flow-packages) [![Downloads](https://img.shields.io/npm/dt/flow-packages.svg)](https://www.npmjs.com/package/flow-packages)
 
-> :package: A collection of flow compatible npm packages.
+> A collection of flow compatible npm packages.
+
+## Installation
+
+```sh
+$ npm i --save flow-packages
+```
 
 ## Example
 
@@ -45,6 +51,9 @@ Have an idea? Found a bug? See [how to contribute][contributing].
  2. Run `npm i` to install the dev dependencies (if you don't have Node.js installed on your machine, just skip this step and the next one).
  3. Rebuild the packages list by running `npm run refresh`
  4. Commit the things and create a pull request (check the [`CONTRIBUTING.md`](/CONTRIBUTING.md) for details).
+
+## Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
 
 ## License
 

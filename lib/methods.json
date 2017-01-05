@@ -1,0 +1,114 @@
+[
+  {
+    "name": "init",
+    "description": "initializes a new state",
+    "sets": {
+      "state": [
+        "handlers",
+        "handlers.$keyCode",
+        "handlers.$keyCode.eventName",
+        "handlers.$keyCode.ctrl",
+        "handlers.$keyCode.shift"
+      ]
+    },
+    "needs": {
+      "args": [
+        "events",
+        "events.$eventName",
+        "events.$eventName.$.keyCode",
+        "events.$eventName.$.ctrl",
+        "events.$eventName.$.shift"
+      ]
+    },
+    "module": "https://raw.githubusercontent.com/danandrei/flow-keypress/module-descriptor/package.json",
+    "moduleName": "flow-keypress",
+    "moduleVersion": "0.1.0",
+    "moduleAuthor": "danandrei"
+  },
+  {
+    "name": "init",
+    "description": "initializes a new state",
+    "sets": {
+      "state": [
+        "editor",
+        "options"
+      ]
+    },
+    "needs": {
+      "args": [
+        "events",
+        "events.$",
+        "options"
+      ]
+    },
+    "module": "https://raw.githubusercontent.com/danandrei/flow-ace/module-descriptor/package.json",
+    "moduleName": "flow-ace",
+    "moduleVersion": "0.1.0",
+    "moduleAuthor": "danandrei"
+  },
+  {
+    "name": "set",
+    "description": "Set new editor value",
+    "sets": {
+      "state": [
+        "editor"
+      ]
+    },
+    "needs": {
+      "state": [
+        "editor"
+      ],
+      "needs": [
+        "$args"
+      ],
+      "args": "$pathToContent"
+    },
+    "module": "https://raw.githubusercontent.com/danandrei/flow-ace/module-descriptor/package.json",
+    "moduleName": "flow-ace",
+    "moduleVersion": "0.1.0",
+    "moduleAuthor": "danandrei"
+  },
+  {
+    "name": "setOptions",
+    "description": "Set new editor options.",
+    "sets": {
+      "state": [
+        "editor"
+      ]
+    },
+    "needs": {
+      "state": [
+        "editor"
+      ],
+      "args": [
+        "options"
+      ],
+      "data": [
+        "options"
+      ]
+    },
+    "module": "https://raw.githubusercontent.com/danandrei/flow-ace/module-descriptor/package.json",
+    "moduleName": "flow-ace",
+    "moduleVersion": "0.1.0",
+    "moduleAuthor": "danandrei"
+  },
+  {
+    "name": "get",
+    "description": "Get editor value.",
+    "sets": {
+      "data": [
+        "$args"
+      ]
+    },
+    "needs": {
+      "state": [
+        "editor"
+      ],
+      "args": "$pathToContent"
+    },
+    "module": "https://raw.githubusercontent.com/danandrei/flow-ace/module-descriptor/package.json",
+    "moduleName": "flow-ace",
+    "moduleVersion": "0.1.0",
+    "moduleAuthor": "danandrei"
+  }
+]

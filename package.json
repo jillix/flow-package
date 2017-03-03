@@ -19,6 +19,10 @@
   "dependencies": {
     "async": "^2.1.4",
     "request": "^2.79.0",
-    "flow-visualizer": "github:adioo/flow-visualizer#refactor"
+    "libobject": "github:jillix/libobject",
+    "flow-visualizer": "github:ottiker/flow-visualizer#refactor",
+    "flow-canvas": "github:ottiker/flow-canvas",
+    "flow-ace": "github:danandrei/flow-ace",
+    "flow-http": "github:jillix/flow-http"
   }
 }

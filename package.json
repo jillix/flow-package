@@ -24,6 +24,7 @@
     "flow-canvas": "github:ottiker/flow-canvas",
     "flow-ace": "github:danandrei/flow-ace",
     "flow-http": "github:jillix/flow-http",
-    "flow-keypress": "github:danandrei/flow-keypress"
+    "flow-keypress": "github:danandrei/flow-keypress",
+    "builder": "github:jillix/builder"
   }
 }

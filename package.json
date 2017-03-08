@@ -2,7 +2,7 @@
   "name": "flow-registry",
   "version": "0.1.0",
   "description": "A collection of flow compatible npm packages.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +18,12 @@
   "homepage": "https://github.com/jillix/flow-registry#readme",
   "dependencies": {
     "async": "^2.1.4",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "libobject": "github:jillix/libobject",
+    "flow-visualizer": "github:ottiker/flow-visualizer#refactor",
+    "flow-canvas": "github:ottiker/flow-canvas",
+    "flow-ace": "github:danandrei/flow-ace",
+    "flow-http": "github:jillix/flow-http",
+    "flow-keypress": "github:danandrei/flow-keypress"
   }
 }

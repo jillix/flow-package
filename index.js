@@ -4,7 +4,7 @@ const fs = require('fs');
 const Path = require('path');
 const HANDLERS_PATH = Path.join(__dirname, 'lib/handlers');
 
-function buildSchemaObject (path) {
+exports.buildSchemaObject = (path) => {
 
     // check if schema object reached
     if (path.indexOf('.json') > -1) {
@@ -32,4 +32,4 @@ function buildSchemaObject (path) {
     return obj;
 };
 
-module.exports = buildSchemaObject(HANDLERS_PATH);
+exports.getFn = (fnIri, callback) => {};

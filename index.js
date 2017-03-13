@@ -10,7 +10,7 @@ exports.getFn = runtime.fn;
 exports.getBundle = runtime.bundle;
 
 // install/uninstall depencency
-exports.install dependency.install;
+exports.install = dependency.install;
 exports.uninstall = dependency.uninstall;
 
 // register/unregister functions

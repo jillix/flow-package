@@ -16,10 +16,10 @@
     "url": "https://github.com/jillix/flow-registry/issues"
   },
   "homepage": "https://github.com/jillix/flow-registry#readme",
-  "dependencies": {
-    "async": "^2.1.4",
-    "request": "^2.79.0",
-    "libobject": "github:jillix/libobject",
-    "url": "^0.11.0"
-  }
+  "dependencies": {},
+  "keywords": [
+    "flow",
+    "registry",
+    "handlers"
+  ]
 }

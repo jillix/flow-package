@@ -1,35 +1,21 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const Path = require('path');
-const HANDLERS_PATH = Path.join(__dirname, 'lib/handlers');
+const runtime = require("./lib/runtime")
+const dependency = require("./lib/dependency");
+const registry = require("./lib/registry");
+const search = require("./lib/search");
 
-function buildSchemaObject (path) {
+// runtime methods
+exports.getFn = runtime.fn;
+exports.getBundle = runtime.bundle;
 
-    // check if schema object reached
-    if (path.indexOf('.json') > -1) {
-        return require(path);
-    }
+// install/uninstall depencency
+exports.install = dependency.install;
+exports.uninstall = dependency.uninstall;
 
-    if (!fs.lstatSync(path).isDirectory()) {
-        return;
-    }
+// register/unregister functions
+exports.register = registry.add;
+exports.unregister = registry.remove;
 
-    let obj = {};
-    let files = fs.readdirSync(path);
-    for (let i = 0; i < files.length; ++i) {
-        if (files[i].indexOf('.') === 0) {
-            continue;
-        }
-
-        let file = buildSchemaObject(Path.join(path, files[i]));
-        if (!file) {
-            continue
-        }
-
-        obj[files[i]] = file;
-    }
-    return obj;
-};
-
-module.exports = buildSchemaObject(HANDLERS_PATH);
+// search functions
+exports.search = search.find;

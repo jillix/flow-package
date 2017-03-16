@@ -16,7 +16,13 @@
     "url": "https://github.com/jillix/flow-registry/issues"
   },
   "homepage": "https://github.com/jillix/flow-registry#readme",
-  "dependencies": {},
+  "dependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "browserify-replace": "^0.9.0",
+    "uglifyify": "^3.0.3"
+  },
   "keywords": [
     "flow",
     "registry",

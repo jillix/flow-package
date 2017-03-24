@@ -4,7 +4,8 @@
   "description": "A collection of flow compatible npm packages.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node lib/dev.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "browserify-replace": "^0.9.0",
+    "chokidar": "^1.6.1",
+    "rimraf": "^2.6.1",
     "uglifyify": "^3.0.3"
   },
   "keywords": [

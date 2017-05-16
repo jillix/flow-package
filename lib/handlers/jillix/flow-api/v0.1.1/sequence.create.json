@@ -1,0 +1,19 @@
+{
+    "name": "squence.create",
+    "description": "Create a new sequence.",
+    "needs": {
+        "data": {
+            "project": "String",
+            "name": "String",
+            "descriptions": "String"
+        },
+        "state": {
+            "api.sequence.create": "function"
+        }
+    },
+    "sets": {
+        "data": {
+            "body": "Object"
+        }
+    }
+}

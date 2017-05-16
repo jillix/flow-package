@@ -1,0 +1,15 @@
+{
+    "name": "search",
+    "description": "Search the flow network",
+    "needs": {
+        "data": {},
+        "state": {
+            "api.search": "function"
+        }
+    },
+    "sets": {
+        "data": {
+            "body": "Object"
+        }
+    }
+}

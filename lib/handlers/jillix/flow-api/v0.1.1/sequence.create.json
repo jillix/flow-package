@@ -5,7 +5,13 @@
         "data": {
             "project": "String",
             "name": "String",
-            "descriptions": "String"
+            "description": "String",
+            "role": "ROLE_ID",
+            "error": "SEQ_ID",
+            "args": "ARGS_ID",
+            "next": "NEXT_ID",
+            "icon": "String",
+            "color": "String"
         },
         "state": {
             "api.sequence.create": "function"

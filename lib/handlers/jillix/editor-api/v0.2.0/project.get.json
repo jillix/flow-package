@@ -3,10 +3,14 @@
     "description": "",
     "sets": {
         "state": [],
-        "data": []
+        "data": {
+            "body": ["<http://schema.jillix.net/vocab/Project>"]
+        }
     },
     "needs": {
         "args": [],
-        "data": []
+        "data": {
+            "id": "<http://schema/jillix.net/vocab/Project#id>"
+        }
     }
 }

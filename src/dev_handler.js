@@ -1,16 +1,6 @@
 #!/usr/bin/env node
 "use strict"
 
-// Create handler:
-// CLI: dev handler_iri dev_name app_path
-// CLI: bump handler_iri major|minor|patch app_path
-// dev:
-// - copy handler_iri and descriptor (replace version with dev name)
-// - symlink in app_path
-// bump:
-// - rename handler_dev_name with version +1 (major|minor|path)
-// - rename descriptor
-
 const fs = require("fs");
 const presolve = require("path").resolve;
 const promisify = require("util").promisify;

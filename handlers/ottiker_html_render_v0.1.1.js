@@ -1,7 +1,8 @@
+Flow.set("fn_iri",(()=>{
+
 "use strict";
 
 const FlowView = require("flow-view");
-
 const OPTIONS = [
     "tmpl",
     "title",
@@ -12,7 +13,7 @@ const OPTIONS = [
     "dontPrevent"
 ];
 
-module.exports = (event, state, args, next) => {
+return (event, args, state, data, resolve, reject) => {
 
     // get type template
     // - what is the relation between a type and a template?
@@ -46,3 +47,5 @@ module.exports = (event, state, args, next) => {
         next(null, data);
     }).catch(next);
 };
+
+})( );

@@ -1,0 +1,22 @@
+{
+    "@id": "<IRI>",
+    "name": "Test handler.",
+    "description": "Test handler dev workflows.",
+    "version": "0.0.1",
+    "tags": [
+        "test",
+        "dev"
+    ],
+    "input": {
+        "args": {},
+        "state": {},
+        "data": {}
+    },
+    "output": {
+        "state": {},
+        "data": {}
+    },
+    "dependencies": {
+        "flow-view": "jillix/flow-tools#v0.1.1"
+    }
+}

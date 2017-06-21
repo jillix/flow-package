@@ -1,0 +1,24 @@
+{
+    "@id": "<IRI>",
+    "name": "HTML Template renderer.",
+    "description": "Render HTML templates with data.",
+    "version": "1.0.0",
+    "tags": [
+        "html",
+        "render",
+        "dom",
+        "template"
+    ],
+    "input": {
+        "args": {},
+        "state": {},
+        "data": {}
+    },
+    "output": {
+        "state": {},
+        "data": {}
+    },
+    "dependencies": {
+        "flow-view": "ottiker/flow-view#v0.1.1"
+    }
+}

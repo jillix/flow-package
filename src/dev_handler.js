@@ -5,22 +5,16 @@ const fs = require("fs");
 const presolve = require("path").resolve;
 const promisify = require("util").promisify;
 const exec = promisify(require("child_process").exec);
-const read = promisify(fs.readFile);
 const open = promisify(fs.open);
+const write = promisify(fs.write);
 const close = promisify(fs.close);
-const rmdir = promisify(fs.rmdir);
-const lstat = promisify(fs.lstat);
+const readF = promisify(fs.readFile);
+const writeF = promisify(fs.writeFile);
 const unlink = promisify(fs.unlink);
 const symlink = promisify(fs.symlink);
 
-function parseHandler (handler_iri) {
-    const temp = handler_iri.split(".");
-    return {
-        user: temp[0],
-        version: temp.slice(-3),
-        name: temp.slice(1, -3).join("."),
-        full: temp.pop === "js" ? handler_iri : (handler_iri + ".js")
-    };
+function removeJsSuffix (string) {
+    return string.split(".").pop() === "js" ? string.slice(0, -3) : string;
 }
 
 module.exports = (argv) => {
@@ -33,8 +27,13 @@ module.exports = (argv) => {
         throw new Error("Missing dev name.");
     }
 
-    const parsed = parseHandler(argv[0]);
-    const dev_handler = parsed.user + "." + parsed.name + "." + argv[1] + ".js";
+    const dev_name = "-" + removeJsSuffix(argv[1]);
+    const handler_iri = removeJsSuffix(argv[0]);
+    const dev_handler = handler_iri + dev_name;
+    const handler_iri_js = handler_iri + ".js";
+    const handler_iri_json = handler_iri + ".json";
+    const dev_handler_js = dev_handler + ".js";
+    const dev_handler_json = dev_handler + ".json";
     const app_base_path = presolve(argv[2] || ".");
     const reg_base_path = presolve(__dirname, "../");
     const app_handler_path = app_base_path + "/handlers/";
@@ -42,32 +41,56 @@ module.exports = (argv) => {
     const log_error = console.error.bind(console);
 
     // check if handler exists in registry
-    open(reg_handler_path + parsed.full, "r")
+    open(reg_handler_path + handler_iri_js, "r")
     .then(close)
     // check if dev handler exists in registry
     .then(() => {
-        return open(reg_handler_path + dev_handler, "r")
+        return open(reg_handler_path + dev_handler_js, "r")
         .then(close)
         .catch((err) => {
             return err.code === "ENOENT" ? exec(
-                "cp " + reg_handler_path + parsed.full + " " + reg_handler_path + dev_handler +
-                ";cp " + reg_handler_path + parsed.full + "on " + reg_handler_path + dev_handler + "on"
-            ) : Promise.reject(err);
+                "cp " + reg_handler_path + handler_iri_js + " " + reg_handler_path + dev_handler_js +
+                ";cp " + reg_handler_path + handler_iri_json + " " + reg_handler_path + dev_handler_json
+            ).then(() => {
+                // replace wrapper line with dev name
+                return open(reg_handler_path + dev_handler_js, "r+")
+                .then((fd) => {
+                    return write(fd, 'Flow.set("' + dev_handler + '",(()=>{', 0)
+                    .then((written) => {
+                        return fd
+                    });
+                })
+                .then(close)
+                .then(() => {
+                    return readF(reg_handler_path + dev_handler_json)
+                    .then(JSON.parse)
+                    .then((descriptor) => {
+                        descriptor.version = descriptor.version + dev_name;
+                        return descriptor;
+                    })
+                    .then((descriptor) => {
+                        return JSON.stringify(descriptor, null, 4);
+                    })
+                    .then((descriptor) => {
+                        return writeF(reg_handler_path + dev_handler_json, descriptor);
+                    })
+                })
+            }) : Promise.reject(err);
         })
     })
     // replace app handler with symlink to copied reg handler
     .then(() => {
-        return open(app_handler_path + dev_handler, "r")
+        return open(app_handler_path + dev_handler_js, "r")
         .then(close)
         .then(() => {
-            return unlink(app_handler_path + dev_handler);
+            return unlink(app_handler_path + dev_handler_js);
         })
         .catch((err) => {
             return err.code === "ENOENT" ? Promise.resolve() : Promise.reject(err);
         });
     })
     .then(() => {
-        return symlink(reg_handler_path + dev_handler, app_handler_path + dev_handler);
+        return symlink(reg_handler_path + dev_handler_js, app_handler_path + dev_handler_js);
     })
     .catch(log_error);
 };

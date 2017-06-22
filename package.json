@@ -2,7 +2,7 @@
   "name": "flow-registry",
   "version": "0.1.0",
   "description": "A collection of flow compatible npm packages.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "bin": {
       "fdev": "./src/index.js"
   },

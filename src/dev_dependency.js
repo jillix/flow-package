@@ -29,9 +29,11 @@ module.exports = (argv) => {
 
     // clone the git repository
     console.log("Replace dependency", "\"" + repo_name + "\"", "with git repo:", git_url);
-    open(repo_path + repo_name, "r").catch((err) => {
+    open(repo_path + repo_name, "r")
+    .then(close)
+    .catch((err) => {
         return err.code === "ENOENT" ? exec("git clone --depth 1 " + git_url + " " + repo_path + repo_name) : Promise.reject(err);
-    }).then(close)
+    })
     // get module name from package + npm install
     .then(() => {
         // check if package file exists

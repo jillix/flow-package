@@ -6,6 +6,9 @@ require("./" + ((mode)=> {
         case "dep":
         case "d":
             return "dev_dependency";
+        case "new":
+        case "n":
+            return "new_handler"
         case "handler":
         case "hnd":
         case "h":

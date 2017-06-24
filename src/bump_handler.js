@@ -1,117 +1,115 @@
-#!/usr/bin/env node
 "use strict"
-
-// Create handler:
-// CLI: dev handler_iri dev_name app_path
-// CLI: bump handler_iri major|minor|patch app_path
-// dev:
-// - copy handler_iri and descriptor (replace version with dev name)
-// - symlink in app_path
-// bump:
-// - rename handler_dev_name with version +1 (major|minor|path)
-// - rename descriptor
 
 const fs = require("fs");
 const presolve = require("path").resolve;
 const promisify = require("util").promisify;
 const exec = promisify(require("child_process").exec);
-const read = promisify(fs.readFile);
 const open = promisify(fs.open);
-const rmdir = promisify(fs.rmdir);
-const lstat = promisify(fs.lstat);
+const write = promisify(fs.write);
+const close = promisify(fs.close);
+const readF = promisify(fs.readFile);
+const writeF = promisify(fs.writeFile);
 const unlink = promisify(fs.unlink);
 const symlink = promisify(fs.symlink);
 
-module.exports = (argv) => {
-    const handler_iri = process.argv[0];
-    const dev_name = process.argv[1];
-    const app_base_path = presolve(process.argv[2] || ".");
+function removeJsSuffix (string) {
+    return string.split(".").pop() === "js" ? string.slice(0, -3) : string;
+}
 
-    if (!handler_iri) {
+module.exports = (argv) => {
+
+    if (!argv[0]) {
         throw new Error("Missing handler <IRI>.");
     }
 
-    if (!dev_name) {
-        throw new Error("Missing dev name.");
+    if (!argv[1]) {
+        throw new Error("Missing version type.");
     }
 
-    const app_handler_path = app_base_path + "/handlers/";
-    const reg_handler_path = __dirname + "/handlers/";
-    const log_error = console.error.bind(console);
-
-    // clone the git repository
-    switch (mode) {
-        case "dev":
-            console.log("Dev handler:", handler_iri, "to dev name:", dev_name, "for app:", app_base_path);
-            // 1. check if handler iri exists in registry
-            // 2. copy .js + .json with dev_name instead of version
-            // 3. replace app handler with symlink to copied reg handler
-            break;
-        case "bump":
-            console.log("Bump handler version:", handler_iri, "update:", dev_name, "for app:", app_base_path);
-            // 1. check if dev handler exists in registry
-            // 2. get version from descriptor
-            // 3. rename dev handler with bumped version
-            // 4. replace app symlink with bumped handler
-            // 5. show message to update sequence manually
+    switch (argv[1]) {
+        case "major":
+        case "minor":
+        case "patch":
             break;
         default:
-            throw new Error("Invalid mode command:" + mode);
+            throw new Error("Invalid version type. Allowed types: major|minor|patch");
     }
 
-    return;
-    exec("git clone --depth 1 " + git_url + " " + repo_path + repo_name)
+    const version_type = argv[1];
+    const dev_handler = removeJsSuffix(argv[0]);
+    const reg_base_path = presolve(__dirname, "../");
+    const app_base_path = presolve(argv[2] || ".");
 
-    // get module name from package + npm install
+    // update version in handler wrapper
+    // update version in handler descriptor
+
+    // rename dev name files
+    // remove symlink in app
+    // copy to app
+
+    const dev_handler_js = reg_base_path + "/handlers/" + dev_handler + ".js";
+    const dev_handler_json = reg_base_path + "/handlers/" + dev_handler + ".json";
+    console.log("Bump:", version_type, dev_handler);
+return;
+    /*const dev_handler_js = dev_handler + ".js";
+    const dev_handler_json = dev_handler + ".json";
+    const app_base_path = presolve(argv[2] || ".");
+    const reg_base_path = presolve(__dirname, "../");
+    const app_handler_path = app_base_path + "/handlers/";
+    const reg_handler_path = reg_base_path + "/handlers/";
+    const log_error = console.error.bind(console);
+
+    // check if handler exists in registry
+    open(reg_handler_path + handler_iri_js, "r")
+    .then(close)
+    // check if dev handler exists in registry
     .then(() => {
-        // check if package file exists
-        return open(repo_path + repo_name + "/package.json", "r")
-        .then((fd) => {
-
-            // npm install
-            console.log("- npm install...")
-            return exec("cd " + repo_path + repo_name + "; npm i")
-
-            // get module name from package
-            .then(() => {
-                console.log("- npm install done.")
-                return read(fd);
-            })
-            .then(JSON.parse)
-            .then((pkg) => {
-                return pkg.name || repo_name;
-            })
-            .catch(log_error);
+        return open(reg_handler_path + dev_handler_js, "r")
+        .then(close)
+        .catch((err) => {
+            return err.code === "ENOENT" ? exec(
+                "cp " + reg_handler_path + handler_iri_js + " " + reg_handler_path + dev_handler_js +
+                ";cp " + reg_handler_path + handler_iri_json + " " + reg_handler_path + dev_handler_json
+            ).then(() => {
+                // replace wrapper line with dev name
+                return open(reg_handler_path + dev_handler_js, "r+")
+                .then((fd) => {
+                    return write(fd, 'Flow.set("' + dev_handler + '",(()=>{', 0)
+                    .then((written) => {
+                        return fd
+                    });
+                })
+                .then(close)
+                .then(() => {
+                    return readF(reg_handler_path + dev_handler_json)
+                    .then(JSON.parse)
+                    .then((descriptor) => {
+                        descriptor.version = descriptor.version + dev_name;
+                        return descriptor;
+                    })
+                    .then((descriptor) => {
+                        return JSON.stringify(descriptor, null, 4);
+                    })
+                    .then((descriptor) => {
+                        return writeF(reg_handler_path + dev_handler_json, descriptor);
+                    })
+                })
+            }) : Promise.reject(err);
+        })
+    })
+    // replace app handler with symlink to copied reg handler
+    .then(() => {
+        return open(app_handler_path + dev_handler_js, "r")
+        .then(close)
+        .then(() => {
+            return unlink(app_handler_path + dev_handler_js);
         })
         .catch((err) => {
-            return repo_name;
+            return err.code === "ENOENT" ? Promise.resolve() : Promise.reject(err);
         });
-    })
-
-    // remove existing dependency
-    .then((repo_name) => {
-
-        // check if a module is installed with that name (folder exits)
-        return lstat(deps_path + repo_name)
-        .then((stats) => {
-            // remove directory or symlink
-            console.log("- remove npm dependency.")
-            return (stats.isSymbolicLink() ? unlink(deps_path + repo_name) : exec("rm -rf " + deps_path + repo_name))
-            .then(() => {
-                return repo_name;
-            });
-        })
-        .catch((err) => {
-            return err.code === "ENOENT" ? repo_name : Promise.reject(err);
-        });
-    })
-    // create symlink to git repo
-    .then((repo_name) => {
-        console.log("- create symlink to git repo.")
-        return symlink(repo_path  + repo_name, deps_path + repo_name, "dir");
     })
     .then(() => {
-        console.log("Done!");
+        return symlink(reg_handler_path + dev_handler_js, app_handler_path + dev_handler_js);
     })
-    .catch(log_error);
+    .catch(log_error);*/
 };

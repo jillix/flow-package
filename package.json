@@ -1,36 +1,24 @@
 {
-  "name": "flow-registry",
-  "version": "0.1.0",
-  "description": "A collection of flow compatible npm packages.",
-  "main": "./lib/index.js",
-  "bin": {
-      "fdev": "./src/index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jillix/flow-registry.git"
-  },
-  "author": "jillix <contact@jillix.com> (http://jillix.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jillix/flow-registry/issues"
-  },
-  "homepage": "https://github.com/jillix/flow-registry#readme",
-  "dependencies": {
-    "babel-preset-es2015": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.0",
-    "browserify-replace": "^0.9.0",
-    "chokidar": "^1.6.1",
-    "rimraf": "^2.6.1",
-    "uglifyify": "^3.0.3"
-  },
-  "keywords": [
-    "flow",
-    "registry",
-    "handlers"
-  ]
+    "name": "flow-registry",
+    "version": "0.1.0",
+    "description": "A collection of flow compatible npm packages.",
+    "main": "./lib/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jillix/flow-registry.git"
+    },
+    "author": "jillix <contact@jillix.com> (http://jillix.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jillix/flow-registry/issues"
+    },
+    "homepage": "https://github.com/jillix/flow-registry#readme",
+    "keywords": [
+        "flow",
+        "registry",
+        "handlers"
+    ]
 }

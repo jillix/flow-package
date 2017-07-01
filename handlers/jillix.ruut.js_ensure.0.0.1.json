@@ -1,0 +1,8 @@
+{
+    "name": "jillix.ruut.js_ensure",
+    "version": "0.0.1",
+    "description": "Ensure a router instance exists. Create one if necessary.",
+    "input": {
+        "args": "<Sequence>"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "jillix.ruut.js_init",
+    "version": "0.0.1",
+    "description": "Create a new router instance.",
+    "input": {
+        "args": {
+            "default": "<String>",
+            "methods": [{
+                "name": "<String>",
+                "sequence": "<Sequence>"
+            }]
+        }
+    },
+    "output": {
+        "state": {
+            "config": "<[handler]#input.args>",
+            "router": "<Ruut.js#instance>"
+        }
+    }
+}

@@ -1,16 +1,4 @@
 Flow.set("jillix.flow_fs_remove.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": {
-            "target": "<FSPath>",
-            "wd": "<FSPath>"
-        },
-        "data": {
-            "target": "<FSPath>",
-            "wd": "<FSPath>"
-        }
-    }
-}*/
 "use strict";
 
 const fs = require("fs");
@@ -40,5 +28,4 @@ return (event, args, state, data, resolve, reject) => {
         resolve(data);
     }).catch(reject);
 };
-
 })());

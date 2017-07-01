@@ -1,0 +1,13 @@
+{
+    "name": "jillix.flow_tools_transform",
+    "version": "0.0.1",
+    "description": "",
+    "input": {
+        "args": ["<FlowToolsTransformMethod>", {
+            "<targetPath>": "<MatchPattern>"
+        }]
+    },
+    "output": {
+        "<targetPath>": "<ReplacedValue>"
+    }
+}

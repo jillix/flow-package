@@ -1,0 +1,15 @@
+{
+    "name": "jillix.flow_cli",
+    "version": "0.0.1",
+    "description": "Translates command line arguments to sequence calls.",
+    "input": {
+        "args": ["<String>", "<Sequence>"]
+    },
+    "output": {
+        "data": {
+            "url": "<Sequence>",
+            "req": "<NodeJsStdin>",
+            "res": "<NodeJsStdout>"
+        }
+    }
+}

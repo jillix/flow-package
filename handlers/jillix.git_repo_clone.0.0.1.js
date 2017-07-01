@@ -1,27 +1,4 @@
 Flow.set("jillix.git_repo_clone.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": {
-            "target": "<FSPath>",
-            "wd": "<FSPath>",
-            "ignoreErrors": "<Boolean>"
-        },
-        "data": {
-            "giturl": "<GIT_URL>",
-            "target": "<FSPath>",
-            "wd": "<FSPath>"
-        }
-    },
-    "output": {
-        "data": {
-            "git": {
-                "url": "<GIT_URL>",
-                "dir": "<FSPath>",
-                "name": "<GIT_REPO_NAME>"
-            }
-        }
-    }
-}*/
 "use strict";
 
 const presolve = require("path").resolve;
@@ -56,5 +33,4 @@ return (event, args, state, data, resolve, reject) => {
         ignoreErrors ? resolve(data) : reject(err);
     });
 };
-
 })());

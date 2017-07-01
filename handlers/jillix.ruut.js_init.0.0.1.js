@@ -1,21 +1,4 @@
 Flow.set("jillix.ruut.js_init.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": {
-            "default": "<String>",
-            "methods": [{
-                "name": "<String>",
-                "sequence": "<Sequence>"
-            }]
-        }
-    },
-    "output": {
-        "state": {
-            "config": "<[handler]#input.args>"
-            "router": "<Ruut.js#instance>"
-        }
-    }
-}*/
 "use strict";
 
 const Ruut = require("ruut.js");
@@ -37,5 +20,4 @@ return (event, args, state, data, resolve, reject) => {
 
     resolve(data);
 };
-
 })());

@@ -1,23 +1,4 @@
 Flow.set("jillix.flow_fs_read.0.0.1",(()=>{
-/*
-"input": {
-    "args": {
-        "path": "<FSPath>",
-        "enc": "<String>",
-        "wd": "<FSPath>"
-    },
-    "data": {
-        "path": "<FSPath>",
-        "enc": "<String>",
-        "wd": "<FSPath>"
-    }
-},
-"output": {
-    "data": {
-        "file": "<FileContent>"
-    }
-}
-*/
 "use strict";
 
 const presolve = require("path").resolve;
@@ -40,5 +21,4 @@ return (event, args, state, data, resolve, reject) => {
         resolve(data);
     }).catch(reject);
 };
-
 })());

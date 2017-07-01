@@ -1,0 +1,15 @@
+{
+    "name": "jillix.url_parse",
+    "version": "0.0.1",
+    "description": "Parse a URL.",
+    "input": {
+        "data": {
+            "url": "<URL>"
+        }
+    },
+    "output": {
+        "data": {
+            "parsed_url": "<URLparsed>"
+        }
+    }
+}

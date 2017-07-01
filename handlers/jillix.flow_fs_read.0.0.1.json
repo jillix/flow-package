@@ -1,0 +1,22 @@
+{
+    "name": "jillix.flow_fs_read",
+    "version": "0.0.1",
+    "description": "Read the content from a file.",
+    "input": {
+        "args": {
+            "path": "<FSPath>",
+            "enc": "<String>",
+            "wd": "<FSPath>"
+        },
+        "data": {
+            "path": "<FSPath>",
+            "enc": "<String>",
+            "wd": "<FSPath>"
+        }
+    },
+    "output": {
+        "data": {
+            "file": "<FileContent>"
+        }
+    }
+}

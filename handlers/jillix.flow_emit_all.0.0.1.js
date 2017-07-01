@@ -1,14 +1,4 @@
 Flow.set("jillix.flow_emit_all.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": ["<Sequence>"]
-    },
-    "output": {
-        "data": {
-            "values": [<"PromiseResult">]
-        }
-    }
-}*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -27,5 +17,4 @@ return (event, args, state, data, resolve, reject) => {
         resolve(data);
     }).catch(reject);
 };
-
 })());

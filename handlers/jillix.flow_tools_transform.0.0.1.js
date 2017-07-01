@@ -1,5 +1,4 @@
 Flow.set("jillix.flow_tools_transform.0.0.1",(()=>{
-
 "use strict";
 
 const FlowTools = require("flow-tools");
@@ -35,5 +34,4 @@ return (event, args, state, data, resolve, reject) => {
 
     resolve(data);
 };
-
 })());

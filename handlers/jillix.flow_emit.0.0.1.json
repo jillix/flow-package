@@ -1,0 +1,16 @@
+{
+    "name": "jillix.flow_emit",
+    "version": "0.0.1",
+    "description": "",
+    "input": {
+        "args": "<Sequence>",
+        "data": {
+            "emit": "<Sequence>"
+        }
+    },
+    "output": {
+        "data": {
+            "value": "<PromiseResult>"
+        }
+    }
+}

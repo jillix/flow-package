@@ -1,16 +1,4 @@
 Flow.set("jillix.flow_cli.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": ["<String>", "<Sequence>"]
-    },
-    "output": {
-        "data": {
-            "url": <Sequence>,
-            "req": "<NodeJsStdin>",
-            "res": "<NodeJsStdout>"
-        }
-    }
-}*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -33,5 +21,4 @@ return (event, args, state, data, resolve, reject) => {
     data.res = process.stdout;
     resolve(event.emit(sequence[1], data));
 };
-
 })());

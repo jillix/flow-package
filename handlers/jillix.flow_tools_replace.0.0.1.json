@@ -1,0 +1,22 @@
+{
+    "name": "jillix.flow_tools_replace",
+    "version": "0.0.1",
+    "description": "Replace matches in a string with a replacmenent string.",
+    "input": {
+        "args": {
+            "regexp": "<RegularExpression>",
+            "search": "<Utf8String>",
+            "replace": "<Utf8String>"
+        },
+        "data": {
+            "regexp": "<RegularExpression>",
+            "search": "<Utf8String>",
+            "replace": "<Utf8String>"
+        }
+    },
+    "output": {
+        "data": {
+            "replaced": "<Utf8String>"
+        }
+    }
+}

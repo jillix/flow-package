@@ -1,0 +1,19 @@
+{
+    "name": "jillix.flow_fs_copy",
+    "version": "0.0.1",
+    "description": "Copy a file.",
+    "input": {
+        "args": {
+            "path": "<FSPath>",
+            "dest": "<FSPath>",
+            "dir": "<Boolean>",
+            "wd": "<FSPath>"
+        },
+        "data": {
+            "path": "<FSPath>",
+            "dest": "<FSPath>",
+            "dir": "<Boolean>",
+            "wd": "<FSPath>"
+        }
+    }
+}

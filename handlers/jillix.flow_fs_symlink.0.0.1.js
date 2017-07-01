@@ -1,13 +1,4 @@
 Flow.set("jillix.flow_fs_symlink.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": {
-            "type": "<NodeJS.fs.symlink.type>",
-            "target": "<FSPath>",
-            "path": "<FSPath>"
-        }
-    }
-}*/
 "use strict";
 
 const fs = require("fs");
@@ -34,5 +25,4 @@ return (event, args, state, data, resolve, reject) => {
         resolve(data);
     }).catch(reject);
 };
-
 })());

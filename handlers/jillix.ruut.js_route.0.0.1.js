@@ -1,21 +1,4 @@
 Flow.set("jillix.ruut.js_route.0.0.1",(()=>{
-/*{
-    "input": {
-        "data": {
-            "path": "<URLPath>"
-        },
-        "state": {
-            "config": "<Ruut.js#config>",
-            "router": "<Ruut.js#instance>"
-        }
-    },
-    "output": {
-        "data": {
-            "route": "<Ruut.js#result>",
-            "params": "<Ruut.js#params>"
-        }
-    }
-}*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -40,5 +23,4 @@ return (event, args, state, data, resolve, reject) => {
 
     resolve(data);
 };
-
 })());

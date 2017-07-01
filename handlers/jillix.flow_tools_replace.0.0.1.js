@@ -1,23 +1,4 @@
 Flow.set("jillix.flow_tools_replace.0.0.1",(()=>{
-/*
-"input": {
-    "args": {
-        "regexp": "<RegularExpression>"
-        "search": "<Utf8String>",
-        "replace": "<Utf8String>"
-    },
-    "data": {
-        "regexp": "<RegularExpression>"
-        "search": "<Utf8String>",
-        "replace": "<Utf8String>"
-    }
-},
-"output": {
-    "data": {
-        "replaced": "<Utf8String>"
-    }
-}
-*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -41,5 +22,4 @@ return (event, args, state, data, resolve, reject) => {
     data.replaced = search.replace(regexp, replace);
     resolve(data);
 };
-
 })());

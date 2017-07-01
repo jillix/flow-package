@@ -1,16 +1,4 @@
 Flow.set("jillix.url_parse.0.0.1",(()=>{
-/*{
-    "input": {
-        "data": {
-            "url": "<URL>"
-        }
-    },
-    "output": {
-        "data": {
-            "parsed_url": "<URLparsed>"
-        }
-    }
-}*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -57,5 +45,4 @@ return (event, args, state, data, resolve, reject) => {
     data.parsed_url = parsed;
     resolve(data);
 };
-
 })());

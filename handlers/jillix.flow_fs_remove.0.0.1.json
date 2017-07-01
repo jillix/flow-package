@@ -1,0 +1,15 @@
+{
+    "name": "jillix.flow_fs_remove",
+    "version": "0.0.1",
+    "description": "Remove a file.",
+    "input": {
+        "args": {
+            "target": "<FSPath>",
+            "wd": "<FSPath>"
+        },
+        "data": {
+            "target": "<FSPath>",
+            "wd": "<FSPath>"
+        }
+    }
+}

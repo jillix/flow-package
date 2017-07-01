@@ -1,0 +1,12 @@
+{
+    "name": "jillix.flow_fs_symlink",
+    "version": "0.0.1",
+    "description": "Create a symlink.",
+    "input": {
+        "args": {
+            "type": "<NodeJS.fs.symlink.type>",
+            "target": "<FSPath>",
+            "path": "<FSPath>"
+        }
+    }
+}

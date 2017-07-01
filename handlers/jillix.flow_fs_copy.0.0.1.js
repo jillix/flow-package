@@ -1,20 +1,4 @@
 Flow.set("jillix.flow_fs_copy.0.0.1",(()=>{
-/*
-"input": {
-    "args": {
-        "path": "<FSPath>",
-        "dest": "<FSPath>",
-        "dir": "<Boolean>",
-        "wd": "<FSPath>"
-    },
-    "data": {
-        "path": "<FSPath>",
-        "dest": "<FSPath>",
-        "dir": "<Boolean>",
-        "wd": "<FSPath>"
-    }
-}
-*/
 "use strict";
 
 const presolve = require("path").resolve;
@@ -38,5 +22,4 @@ return (event, args, state, data, resolve, reject) => {
     exec("cp " + (dir ? "-r" : "") + " " + presolve(wd, path) + " " + presolve(wd, dest))
     .then(() => {resolve(data)}).catch(reject);
 };
-
 })());

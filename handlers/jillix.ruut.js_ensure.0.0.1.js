@@ -1,9 +1,4 @@
 Flow.set("jillix.ruut.js_ensure.0.0.1",(()=>{
-/*{
-    "input": {
-        "args": "<Sequence>"
-    }
-}*/
 "use strict";
 
 return (event, args, state, data, resolve, reject) => {
@@ -18,5 +13,4 @@ return (event, args, state, data, resolve, reject) => {
 
     resolve(event.emit(args, data));
 };
-
 })());

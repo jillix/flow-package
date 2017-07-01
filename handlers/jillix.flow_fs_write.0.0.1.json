@@ -1,0 +1,19 @@
+{
+    "name": "jillix.flow_fs_write",
+    "version": "0.0.1",
+    "description": "Write a file.",
+    "input": {
+        "args": {
+            "path": "<FSPath>",
+            "content": "<FileContent>",
+            "enc": "<String>",
+            "wd": "<FSPath>"
+        },
+        "data": {
+            "path": "<FSPath>",
+            "content": "<FileContent>",
+            "enc": "<String>",
+            "wd": "<FSPath>"
+        }
+    }
+}

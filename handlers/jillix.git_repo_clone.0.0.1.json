@@ -1,0 +1,26 @@
+{
+    "name": "jillix.git_repo_clone",
+    "version": "0.0.1",
+    "description": "Clone a git repo into a path.",
+    "input": {
+        "args": {
+            "target": "<FSPath>",
+            "wd": "<FSPath>",
+            "ignoreErrors": "<Boolean>"
+        },
+        "data": {
+            "giturl": "<GIT_URL>",
+            "target": "<FSPath>",
+            "wd": "<FSPath>"
+        }
+    },
+    "output": {
+        "data": {
+            "git": {
+                "url": "<GIT_URL>",
+                "dir": "<FSPath>",
+                "name": "<GIT_REPO_NAME>"
+            }
+        }
+    }
+}

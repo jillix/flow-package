@@ -1,0 +1,15 @@
+{
+    "@id": "dat://984j98nb4brh849d/flow/handlers/flow_emit_race",
+    "name": "flow_emit_race",
+    "version": "0.0.1",
+    "description": "Emit multiple sequences and get the value of the first sequence, that finishes.",
+    "tags": ["emit", "race"],
+    "input": {
+        "args": ["<Sequence>"]
+    },
+    "output": {
+        "data": {
+            "value": "<PromiseResult>"
+        }
+    }
+}
